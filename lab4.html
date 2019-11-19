@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> program to find leftmost vowel and digits in reverse order</title>
+    <script type="text/javascript">
+        function reset() {
+            document.getElementById('val').value = "";
+        }
+        function validate() {
+            var inp = document.getElementById('val').value;
+            if (isNaN(inp))
+                findVowel(inp);
+            else
+                findReverse(inp);
+        }
+        function findVowel(inp) {
+            var str = inp.toLowerCase();
+            var pos = 0; ch = "";
+            for (var i = 0; i < str.length; i++) {
+                ch = str.charAt(i);
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    pos = i + 1;
+                    break;
+                }
+            }
+            if (pos == 0)
+                alert("vowel not found");
+            else
+                alert("position of leftmost vowel in the string:" + pos);
+        }
+        function findReverse(inp) {
+            var num = parseInt(inp);
+            var temp = num;
+            var rem = 0, rev = 0;
+            while (num > 0) {
+                rem = num % 10;
+                rev = rev * 10 + rem;
+                num = parseInt(num / 10);
+            }
+            alert("number:" + temp + "\nreverse order:" + rev);
+        }
+    </script>
+</head>
+
+<body>
+    <h1 align="center">program to find left most vowel and digiths in the reverse order</h1>
+    <center>
+        <input type="text" name="val" id="val" placeholder="entewr string or digits">
+        <br><br>
+        <input type="button" value="clear" onClick="reset()" />
+        <input type="button" value="submit" onClick="validate()">
+    </center>
+</body>
+
+</html>
